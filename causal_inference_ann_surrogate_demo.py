@@ -43,7 +43,7 @@ def causal_inference_obs():
                 flag_value=-9999
                 data[np.isnan(data)]=flag_value
                 dataframe = pp.DataFrame(data, var_names=var_names,missing_flag=flag_value)
-                parcorr = CMIknn(significance='shuffle_test',sig_samples=20,)#significance='fixed_thres',fixed_thres=0.001 significance='shuffle_test',fixed_thres=0.005,
+                parcorr = CMIknn(significance='shuffle_test',sig_samples=100,)#significance='fixed_thres',fixed_thres=0.001 significance='shuffle_test',fixed_thres=0.005,
                 pcmci_parcorr = PCMCI(
                     dataframe=dataframe,
                     cond_ind_test=parcorr,
@@ -90,7 +90,7 @@ def causal_inference_cmip():
                     data[np.isnan(data)] = flag_value
                     dataframe = pp.DataFrame(data, var_names=var_names, missing_flag=flag_value)
                     parcorr = CMIknn(significance='shuffle_test',
-                                     sig_samples=20, )
+                                     sig_samples=100, )
                     pcmci_parcorr = PCMCI(
                         dataframe=dataframe,
                         cond_ind_test=parcorr,
